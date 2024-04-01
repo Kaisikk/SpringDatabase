@@ -3,6 +3,7 @@ package com.kaisikk.java.springdatabase.controller;
 import com.kaisikk.java.springdatabase.model.Image;
 import com.kaisikk.java.springdatabase.repo.ImageRepo;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -17,6 +18,7 @@ import java.io.InputStream;
 
 @Controller
 @RequestMapping("/image")
+@Slf4j
 public class ImageController {
 
 
@@ -61,6 +63,7 @@ public class ImageController {
         for (byte b : image.getImage()) byArray[i++] = b;
         InputStream is = new ByteArrayInputStream(byArray);
         IOUtils.copy(is, response.getOutputStream());
+        log.info("file upload");
     }
 
 
