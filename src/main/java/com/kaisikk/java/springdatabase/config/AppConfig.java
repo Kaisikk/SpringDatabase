@@ -1,5 +1,7 @@
 package com.kaisikk.java.springdatabase.config;
 
+import com.kaisikk.java.springdatabase.filter.LogginFilter;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -28,6 +30,14 @@ public class AppConfig {
 
 
         return mailSender;
+    }
+
+    @Bean
+    public FilterRegistrationBean<LogginFilter> filterFilterRegistrationBean() {
+        FilterRegistrationBean<LogginFilter> filterFilterRegistrationBean = new FilterRegistrationBean();
+        filterFilterRegistrationBean.setFilter(new LogginFilter());
+        filterFilterRegistrationBean.addUrlPatterns("");
+        return filterFilterRegistrationBean;
     }
 
 
