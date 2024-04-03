@@ -1,7 +1,5 @@
 package com.kaisikk.java.springdatabase;
 
-import com.kaisikk.java.springdatabase.model.LanguageMongo;
-import com.kaisikk.java.springdatabase.model.LanguageMySQL;
 import com.kaisikk.java.springdatabase.repo.LanguageMongoRepo;
 import com.kaisikk.java.springdatabase.repo.LanguageMySQLRepo;
 import org.springframework.boot.CommandLineRunner;
@@ -9,9 +7,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.Bean;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 @ServletComponentScan
+//@EnableScheduling
 public class SpringDatabaseApplication {
 
     public static void main(String[] args) {
