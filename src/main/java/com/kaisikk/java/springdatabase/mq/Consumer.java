@@ -7,10 +7,10 @@ import org.springframework.stereotype.Component;
 @Component
 @Slf4j
 public class Consumer {
-
-    @RabbitListener(queues = "${rabbitmq.queue}")
-    public void consume(String msg) throws InterruptedException {
-        Thread.sleep(5000);
-    log.info("Consume: " + msg);
-    }
+//
+//    @RabbitListener(queues = "${rabbitmq.queue}")
+//    public void consume(String msg) throws InterruptedException {
+//        Thread.sleep(5000);
+//    log.info("Consume: " + msg);
+//    }
 }

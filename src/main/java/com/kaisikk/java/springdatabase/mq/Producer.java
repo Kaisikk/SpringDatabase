@@ -16,41 +16,41 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class Producer {
 
-    @Value("${rabbitmq.exchange}")
-    private String exchange;
-
-    @Value("${rabbitmq.routing}")
-    private String routing;
-
-    @Value("${rabbitmq.queue}")
-    private String queue;
-
-    @Autowired
-    private RabbitTemplate rabbitTemplate;
-
-
-    @Bean
-    public Queue queue() {
-        return new Queue(queue, false);
-    }
-
-    @Bean
-    public TopicExchange exchange() {
-        return new TopicExchange(exchange);
-    }
-
-    @Bean
-    public Binding binding(Queue queue, TopicExchange exchange) {
-        return BindingBuilder.bind(queue).to(exchange).with(routing);
-    }
-
-    static int i = 1;
-
-    @Scheduled(fixedDelay = 10000)
-    public void produce() {
-        i++;
-        log.info("counter: " + i);
-        rabbitTemplate.convertAndSend(exchange, routing, "counter = :" + i);
-    }
+//    @Value("${rabbitmq.exchange}")
+//    private String exchange;
+//
+//    @Value("${rabbitmq.routing}")
+//    private String routing;
+//
+//    @Value("${rabbitmq.queue}")
+//    private String queue;
+//
+//    @Autowired
+//    private RabbitTemplate rabbitTemplate;
+//
+//
+//    @Bean
+//    public Queue queue() {
+//        return new Queue(queue, false);
+//    }
+//
+//    @Bean
+//    public TopicExchange exchange() {
+//        return new TopicExchange(exchange);
+//    }
+//
+//    @Bean
+//    public Binding binding(Queue queue, TopicExchange exchange) {
+//        return BindingBuilder.bind(queue).to(exchange).with(routing);
+//    }
+//
+//    static int i = 1;
+//
+//    @Scheduled(fixedDelay = 10000)
+//    public void produce() {
+//        i++;
+//        log.info("counter: " + i);
+//        rabbitTemplate.convertAndSend(exchange, routing, "counter = :" + i);
+//    }
 
 }
